@@ -1,0 +1,84 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-landing-page-that-displays-a-welcome-message-confirming-the-site-is-running-on-the-local-network",
+      "featureTitle": "Create a landing page that displays a welcome message confirming the site is running on the local network",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-simple-navigation-menu-with-sections-for-common-lan-website-features-dashboard-network-status-and-settings",
+      "featureTitle": "Implement a simple navigation menu with sections for common LAN website features: Dashboard, Network Status, and Settings",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/Navigation.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-dashboard-page-that-displays-basic-network-information-placeholder-sections",
+      "featureTitle": "Create a Dashboard page that displays basic network information placeholder sections",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Dashboard.tsx",
+        "frontend/src/pages/NetworkStatus.tsx",
+        "frontend/src/pages/Settings.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-creative-professional-visual-theme-with-a-modern-color-scheme-avoid-blue-and-purple-that-conveys-reliability-and-local-network-connectivity-with-consistent-typography-and-spacing-throughout-the-application",
+      "featureTitle": "Add a creative, professional visual theme with a modern color scheme (avoid blue and purple) that conveys reliability and local network connectivity, with consistent typography and spacing throughout the application",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

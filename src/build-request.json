@@ -1,0 +1,86 @@
+{
+  "kind": "build_request",
+  "title": "Create LAN-based website for local network",
+  "projectName": "LAN Hub",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a landing page that displays a welcome message confirming the site is running on the local network",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Landing page renders successfully",
+        "Welcome message is clearly visible",
+        "Page confirms local network status"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a simple navigation menu with sections for common LAN website features: Dashboard, Network Status, and Settings",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigation menu is visible on all pages",
+        "All three menu items are present and clickable",
+        "Navigation provides clear indication of current page"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a Dashboard page that displays basic network information placeholder sections",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dashboard page is accessible from navigation",
+        "Page displays placeholder sections for network info",
+        "Layout is clean and organized"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add a creative, professional visual theme with a modern color scheme (avoid blue and purple) that conveys reliability and local network connectivity, with consistent typography and spacing throughout the application",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Consistent color scheme applied across all pages",
+        "Typography is professional and readable",
+        "Visual style conveys network/connectivity theme",
+        "Design does not use blue or purple as primary colors"
+      ]
+    }
+  ],
+  "constraints": [
+    "Website must be accessible on local network without external dependencies",
+    "Use only supported technologies: React, TypeScript, Tailwind CSS, Motoko backend"
+  ],
+  "nonGoals": [
+    "Real-time network monitoring features",
+    "Integration with actual network devices or routers",
+    "External API integrations",
+    "User authentication beyond Internet Identity"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Network connectivity icon with geometric lines and nodes representing local network (network-icon.dim_128x128.png)",
+      "Hero banner background with abstract network pattern in earthy tones (hero-network.dim_1920x400.png)"
+    ],
+    "edits": []
+  }
+}

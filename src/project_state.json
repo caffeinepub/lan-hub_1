@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A LAN-based website for running on a local network",
+  "architectural_notes": [
+    "Website designed for LAN deployment on local network"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Network connectivity icon with geometric lines and nodes representing local network (network-icon.dim_128x128.png)\n- Hero banner background with abstract network pattern in earthy tones (hero-network.dim_1920x400.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-landing-page-that-displays-a-welcome-message-confirming-the-site-is-running-on-the-local-network",
+      "title": "Create a landing page that displays a welcome message confirming the site is running on the local network",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-simple-navigation-menu-with-sections-for-common-lan-website-features-dashboard-network-status-and-settings",
+      "title": "Implement a simple navigation menu with sections for common LAN website features: Dashboard, Network Status, and Settings",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-dashboard-page-that-displays-basic-network-information-placeholder-sections",
+      "title": "Create a Dashboard page that displays basic network information placeholder sections",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-creative-professional-visual-theme-with-a-modern-color-scheme-avoid-blue-and-purple-that-conveys-reliability-and-local-network-connectivity-with-consistent-typography-and-spacing-throughout-the-application",
+      "title": "Add a creative, professional visual theme with a modern color scheme (avoid blue and purple) that conveys reliability and local network connectivity, with consistent typography and spacing throughout the application",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a LAN-based website that runs on local network",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "LAN Hub",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
