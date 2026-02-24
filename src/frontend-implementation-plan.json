@@ -1,105 +1,82 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "LAN Hub - Local Network Website",
+  "title": "Add file upload feature to LAN Hub",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Create a landing page displaying a welcome message confirming local network status",
+      "id": "REQ-8",
+      "summary": "Create Files page with drag-and-drop file upload interface and progress indicator",
       "acceptanceCriteria": [
-        "Landing page renders successfully",
-        "Welcome message is clearly visible",
-        "Page confirms local network status"
+        "Renders a drag-and-drop zone for file selection",
+        "Provides a button for traditional file selection dialog",
+        "Shows upload progress with percentage indicator during upload",
+        "Displays success message with file name after successful upload",
+        "Shows error message if upload fails",
+        "Accepts multiple file types (documents, images, videos, etc.)"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/Home.tsx",
+          "path": "frontend/src/pages/Files.tsx",
           "operation": "create",
-          "description": "Create landing page component that displays a welcome message, network status confirmation, and integrates the generated hero banner background (frontend/public/assets/generated/hero-network.dim_1920x400.png) as a visual element"
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wire the Home page component into the router as the default route ('/') and ensure it renders when users access the application"
+          "description": "Create Files page component with drag-and-drop zone using shadcn/ui Card component for upload area. Implement file input with onChange handler to capture selected files. Use ExternalBlob.fromBytes() to convert file data and attach upload progress tracking with withUploadProgress(). Call backend uploadFile method with blob, filename, size, and contentType. Display upload progress percentage during transfer. Show success toast with filename after completion or error message on failure. Include file list display section that will show uploaded files. Verify the blob-storage component's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-2",
-      "summary": "Implement navigation menu with Dashboard, Network Status, and Settings sections",
+      "id": "REQ-9",
+      "summary": "Display list of uploaded files with metadata and download functionality",
       "acceptanceCriteria": [
-        "Navigation menu is visible on all pages",
-        "All three menu items are present and clickable",
-        "Navigation provides clear indication of current page"
+        "Fetches and displays list of uploaded files from backend",
+        "Shows filename, formatted file size, and upload timestamp for each file",
+        "Provides download button for each file that triggers file download",
+        "Updates list automatically after new file upload",
+        "Shows empty state message when no files have been uploaded",
+        "Formats file sizes appropriately (KB, MB, GB)",
+        "Formats upload dates in human-readable format"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add React Query hooks for file operations. Create useListFiles hook that calls backend.listFiles() to fetch file metadata array. Create useGetFile hook that accepts fileId parameter and calls backend.getFile(fileId) to retrieve file blob and metadata. Use ExternalBlob.getDirectURL() for download functionality. Ensure queries are invalidated after successful uploads to refresh the file list. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Files.tsx",
+          "operation": "modify",
+          "description": "Add file list section below upload area using useListFiles hook to fetch files. Map over files array to display each file in a Card component showing filename, formatted file size (convert bigint bytes to KB/MB/GB), and human-readable upload timestamp. Add Download button for each file that uses the file's ExternalBlob.getDirectURL() to trigger browser download via anchor element with download attribute. Show empty state message when files array is empty. Implement automatic list refresh by invalidating queries after successful upload. Format timestamps using date-fns or similar library for human-readable dates."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add Files navigation menu item linking to Files page",
+      "acceptanceCriteria": [
+        "Navigation menu includes 'Files' menu item",
+        "Files link appears in logical order within existing menu items",
+        "Active state highlighting works for Files page",
+        "Link navigates to /files route"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/Navigation.tsx",
-          "operation": "create",
-          "description": "Create navigation menu component with links to Dashboard, Network Status, and Settings pages, including active state indication and the generated network icon (frontend/public/assets/generated/network-icon.dim_128x128.png) as a logo/brand element"
-        },
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "create",
-          "description": "Create layout wrapper component that includes the Navigation component and wraps page content, ensuring consistent navigation across all pages"
-        },
-        {
-          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Wrap all routes with the Layout component to ensure the navigation menu appears on every page"
+          "description": "Add Files menu item to navigation array between Dashboard and Network Status items. Include label 'Files' and href '/files'. Ensure active state highlighting applies when current route matches /files path using existing active state logic pattern from other menu items."
         }
       ]
     },
     {
-      "id": "REQ-3",
-      "summary": "Create Dashboard page displaying placeholder sections for network information",
+      "id": "REQ-11",
+      "summary": "Configure Files page route in application router",
       "acceptanceCriteria": [
-        "Dashboard page is accessible from navigation",
-        "Page displays placeholder sections for network info",
-        "Layout is clean and organized"
+        "Files page route is defined at /files path",
+        "Route uses same Layout wrapper as other pages",
+        "Navigation to /files renders the Files page component"
       ],
       "file_operations": [
-        {
-          "path": "frontend/src/pages/Dashboard.tsx",
-          "operation": "create",
-          "description": "Create Dashboard page component with organized placeholder sections for network information display (e.g., connected devices, bandwidth, uptime)"
-        },
-        {
-          "path": "frontend/src/pages/NetworkStatus.tsx",
-          "operation": "create",
-          "description": "Create Network Status page component as a placeholder to fulfill the navigation menu requirement"
-        },
-        {
-          "path": "frontend/src/pages/Settings.tsx",
-          "operation": "create",
-          "description": "Create Settings page component as a placeholder to fulfill the navigation menu requirement"
-        },
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Register routes for Dashboard ('/dashboard'), Network Status ('/network-status'), and Settings ('/settings') pages in the router configuration"
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Apply professional visual theme with modern color scheme (avoiding blue and purple) that conveys reliability and local network connectivity",
-      "acceptanceCriteria": [
-        "Consistent color scheme applied across all pages",
-        "Typography is professional and readable",
-        "Visual style conveys network/connectivity theme",
-        "Design does not use blue or purple as primary colors"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Configure custom color palette using earthy, warm tones (such as greens, oranges, or teals) that avoid blue and purple, while conveying reliability and connectivity themes"
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Define global typography styles with professional font selections, consistent spacing utilities, and base styles that support the network connectivity visual theme across the application"
+          "description": "Add route configuration for Files page at /files path within the existing router setup. Import Files page component and register route using same Layout wrapper pattern as Dashboard, Network Status, and Settings pages. Ensure route is defined in TanStack Router configuration with proper nesting under Layout component."
         }
       ]
     }

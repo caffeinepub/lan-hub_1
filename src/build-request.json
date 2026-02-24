@@ -1,86 +1,142 @@
 {
   "kind": "build_request",
-  "title": "Create LAN-based website for local network",
+  "title": "Add file upload feature",
   "projectName": "LAN Hub",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create a landing page that displays a welcome message confirming the site is running on the local network",
-      "target": "frontend",
+      "id": "REQ-5",
+      "text": "Create a backend method to accept file uploads, store file metadata (filename, size, upload timestamp, content type), and return a unique file identifier",
+      "target": "backend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ]
       },
       "acceptanceCriteria": [
-        "Landing page renders successfully",
-        "Welcome message is clearly visible",
-        "Page confirms local network status"
+        "Backend accepts file data as Blob type",
+        "Stores file metadata including filename, size, timestamp, and content type",
+        "Returns a unique identifier for each uploaded file",
+        "Implements stable storage to persist files across canister upgrades"
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Implement a simple navigation menu with sections for common LAN website features: Dashboard, Network Status, and Settings",
-      "target": "frontend",
+      "id": "REQ-6",
+      "text": "Create a backend method to retrieve uploaded files by their unique identifier, returning both file data and metadata",
+      "target": "backend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ]
       },
       "acceptanceCriteria": [
-        "Navigation menu is visible on all pages",
-        "All three menu items are present and clickable",
-        "Navigation provides clear indication of current page"
+        "Accepts file identifier as parameter",
+        "Returns file data as Blob",
+        "Returns associated metadata (filename, size, content type)",
+        "Handles non-existent file IDs gracefully with appropriate error response"
       ]
     },
     {
-      "id": "REQ-3",
-      "text": "Create a Dashboard page that displays basic network information placeholder sections",
-      "target": "frontend",
+      "id": "REQ-7",
+      "text": "Create a backend method to list all uploaded files with their metadata (filename, size, upload date, file ID)",
+      "target": "backend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ]
       },
       "acceptanceCriteria": [
-        "Dashboard page is accessible from navigation",
-        "Page displays placeholder sections for network info",
-        "Layout is clean and organized"
+        "Returns array of file metadata records",
+        "Includes file ID, filename, size, upload timestamp, and content type for each file",
+        "Orders files by upload date (most recent first)"
       ]
     },
     {
-      "id": "REQ-4",
-      "text": "Add a creative, professional visual theme with a modern color scheme (avoid blue and purple) that conveys reliability and local network connectivity, with consistent typography and spacing throughout the application",
+      "id": "REQ-8",
+      "text": "Create a Files page accessible from the navigation menu with a file upload interface including drag-and-drop zone, file selection button, and upload progress indicator",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-4"
         ]
       },
       "acceptanceCriteria": [
-        "Consistent color scheme applied across all pages",
-        "Typography is professional and readable",
-        "Visual style conveys network/connectivity theme",
-        "Design does not use blue or purple as primary colors"
+        "Renders a drag-and-drop zone for file selection",
+        "Provides a button for traditional file selection dialog",
+        "Shows upload progress with percentage indicator during upload",
+        "Displays success message with file name after successful upload",
+        "Shows error message if upload fails",
+        "Accepts multiple file types (documents, images, videos, etc.)"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Display a list of all uploaded files on the Files page showing filename, file size, upload date, and download button for each file",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Fetches and displays list of uploaded files from backend",
+        "Shows filename, formatted file size, and upload timestamp for each file",
+        "Provides download button for each file that triggers file download",
+        "Updates list automatically after new file upload",
+        "Shows empty state message when no files have been uploaded",
+        "Formats file sizes appropriately (KB, MB, GB)",
+        "Formats upload dates in human-readable format"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add 'Files' navigation item to the Navigation component linking to the new Files page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigation menu includes 'Files' menu item",
+        "Files link appears in logical order within existing menu items",
+        "Active state highlighting works for Files page",
+        "Link navigates to /files route"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Configure routing in App.tsx to include the Files page at /files route",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Files page route is defined at /files path",
+        "Route uses same Layout wrapper as other pages",
+        "Navigation to /files renders the Files page component"
       ]
     }
   ],
   "constraints": [
-    "Website must be accessible on local network without external dependencies",
-    "Use only supported technologies: React, TypeScript, Tailwind CSS, Motoko backend"
+    "Keep all backend logic in the single main actor file (backend/main.mo)",
+    "Do not modify immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui",
+    "Use existing color scheme from frontend/src/index.css with warm earthy tones (60° hue) and teal/green accents (160-180° hue)",
+    "Follow existing layout patterns from other pages (Dashboard, NetworkStatus, Settings)"
   ],
   "nonGoals": [
-    "Real-time network monitoring features",
-    "Integration with actual network devices or routers",
-    "External API integrations",
-    "User authentication beyond Internet Identity"
+    "File deletion or management features beyond upload and download",
+    "File sharing or permission controls",
+    "File preview or thumbnail generation",
+    "Folder organization or categorization",
+    "File versioning or revision history",
+    "Virus scanning or file validation beyond basic type checking",
+    "Integration with external storage services"
   ],
   "imageRequirements": {
-    "required": [
-      "Network connectivity icon with geometric lines and nodes representing local network (network-icon.dim_128x128.png)",
-      "Hero banner background with abstract network pattern in earthy tones (hero-network.dim_1920x400.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

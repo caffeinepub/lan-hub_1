@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import NetworkStatus from './pages/NetworkStatus';
 import Settings from './pages/Settings';
+import Files from './pages/Files';
 
 const rootRoute = createRootRoute({
   component: Layout,
@@ -33,11 +34,18 @@ const settingsRoute = createRoute({
   component: Settings,
 });
 
+const filesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/files',
+  component: Files,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   dashboardRoute,
   networkStatusRoute,
   settingsRoute,
+  filesRoute,
 ]);
 
 const router = createRouter({ routeTree });

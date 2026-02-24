@@ -1,13 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 5,
   "summary": "A LAN-based website for running on a local network",
   "architectural_notes": [
     "Website designed for LAN deployment on local network"
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Network connectivity icon with geometric lines and nodes representing local network (network-icon.dim_128x128.png)\n- Hero banner background with abstract network pattern in earthy tones (hero-network.dim_1920x400.png)",
   "existing_features": [
     {
       "id": "feature-create-a-landing-page-that-displays-a-welcome-message-confirming-the-site-is-running-on-the-local-network",
@@ -40,6 +39,38 @@
         "REQ-4"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-create-a-files-page-accessible-from-the-navigation-menu-with-a-file-upload-interface-including-drag-and-drop-zone-file-selection-button-and-upload-progress-indicator",
+      "title": "Create a Files page accessible from the navigation menu with a file upload interface including drag-and-drop zone, file selection button, and upload progress indicator",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-a-list-of-all-uploaded-files-on-the-files-page-showing-filename-file-size-upload-date-and-download-button-for-each-file",
+      "title": "Display a list of all uploaded files on the Files page showing filename, file size, upload date, and download button for each file",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-files-navigation-item-to-the-navigation-component-linking-to-the-new-files-page",
+      "title": "Add 'Files' navigation item to the Navigation component linking to the new Files page",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-configure-routing-in-app-tsx-to-include-the-files-page-at-files-route",
+      "title": "Configure routing in App.tsx to include the Files page at /files route",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -47,6 +78,36 @@
       "id": "AR-1",
       "summary": "Create a LAN-based website that runs on local network",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add file upload feature",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Create a backend method to accept file uploads, store file metadata (filename, size, upload timestamp, content type), and return a unique file identifier",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create a backend method to retrieve uploaded files by their unique identifier, returning both file data and metadata",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create a backend method to list all uploaded files with their metadata (filename, size, upload date, file ID)",
+      "reqIds": [
+        "REQ-7"
+      ],
       "status": "pending"
     }
   ],

@@ -1,12 +1,13 @@
 # Specification
 
 ## Summary
-**Goal:** Create a simple LAN-based website with a landing page, navigation menu, and dashboard displaying placeholder network information.
+**Goal:** Add file upload and download functionality to the LAN Hub application.
 
 **Planned changes:**
-- Create a landing page with a welcome message confirming local network status
-- Implement a navigation menu with Dashboard, Network Status, and Settings sections
-- Build a Dashboard page with placeholder sections for network information
-- Apply a modern visual theme with earthy tones (avoiding blue and purple) that conveys reliability and connectivity
+- Create backend methods to handle file uploads, store file metadata, and retrieve files by ID
+- Create backend method to list all uploaded files with metadata
+- Add a new Files page with drag-and-drop file upload interface and progress indicator
+- Display list of uploaded files with download functionality
+- Add Files navigation item and configure routing
 
-**User-visible outcome:** Users can access a professional-looking LAN website on their local network with a welcome page, navigate between sections, and view a dashboard with placeholder network information sections.
+**User-visible outcome:** Users can upload files through a drag-and-drop interface, view a list of all uploaded files with metadata (filename, size, upload date), and download any previously uploaded file.

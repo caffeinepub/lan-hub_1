@@ -1,5 +1,5 @@
 import { Link, useRouterState } from '@tanstack/react-router';
-import { Network, LayoutDashboard, Activity, Settings } from 'lucide-react';
+import { Network, LayoutDashboard, Activity, Settings, FileText } from 'lucide-react';
 
 export default function Navigation() {
   const router = useRouterState();
@@ -8,6 +8,7 @@ export default function Navigation() {
   const navItems = [
     { path: '/', label: 'Home', icon: Network },
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { path: '/files', label: 'Files', icon: FileText },
     { path: '/network-status', label: 'Network Status', icon: Activity },
     { path: '/settings', label: 'Settings', icon: Settings },
   ];

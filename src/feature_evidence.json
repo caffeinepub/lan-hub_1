@@ -2,30 +2,48 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-landing-page-that-displays-a-welcome-message-confirming-the-site-is-running-on-the-local-network",
-      "featureTitle": "Create a landing page that displays a welcome message confirming the site is running on the local network",
+      "featureId": "feature-create-a-files-page-accessible-from-the-navigation-menu-with-a-file-upload-interface-including-drag-and-drop-zone-file-selection-button-and-upload-progress-indicator",
+      "featureTitle": "Create a Files page accessible from the navigation menu with a file upload interface including drag-and-drop zone, file selection button, and upload progress indicator",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/pages/Home.tsx"
+        "frontend/src/pages/Files.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-8"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-implement-a-simple-navigation-menu-with-sections-for-common-lan-website-features-dashboard-network-status-and-settings",
-      "featureTitle": "Implement a simple navigation menu with sections for common LAN website features: Dashboard, Network Status, and Settings",
+      "featureId": "feature-display-a-list-of-all-uploaded-files-on-the-files-page-showing-filename-file-size-upload-date-and-download-button-for-each-file",
+      "featureTitle": "Display a list of all uploaded files on the Files page showing filename, file size, upload date, and download button for each file",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/Layout.tsx",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/Files.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-files-navigation-item-to-the-navigation-component-linking-to-the-new-files-page",
+      "featureTitle": "Add 'Files' navigation item to the Navigation component linking to the new Files page",
+      "files": [
         "frontend/src/components/Navigation.tsx"
       ],
       "components": [
@@ -33,50 +51,30 @@
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
       ],
       "testIds": [
-        "REQ-2"
+        "REQ-10"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-create-a-dashboard-page-that-displays-basic-network-information-placeholder-sections",
-      "featureTitle": "Create a Dashboard page that displays basic network information placeholder sections",
+      "featureId": "feature-configure-routing-in-app-tsx-to-include-the-files-page-at-files-route",
+      "featureTitle": "Configure routing in App.tsx to include the Files page at /files route",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/pages/Dashboard.tsx",
-        "frontend/src/pages/NetworkStatus.tsx",
-        "frontend/src/pages/Settings.tsx"
+        "frontend/src/App.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
       ],
       "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-creative-professional-visual-theme-with-a-modern-color-scheme-avoid-blue-and-purple-that-conveys-reliability-and-local-network-connectivity-with-consistent-typography-and-spacing-throughout-the-application",
-      "featureTitle": "Add a creative, professional visual theme with a modern color scheme (avoid blue and purple) that conveys reliability and local network connectivity, with consistent typography and spacing throughout the application",
-      "files": [
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
+        "REQ-11"
       ],
       "confidence": "high"
     }
